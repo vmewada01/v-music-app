@@ -6,9 +6,9 @@ const getMusicRecordRequest =()=>{
   return {type: types.GET_MUSIC_RECORDS_REQUEST }
 }
 
-const getMusicRecord= () =>(dispatch)=>{
+const getMusicRecord= (params) =>(dispatch)=>{
    dispatch(getMusicRecordRequest())
-   return axios.get("http://localhost:8080/albums")
+   return axios.get("http://localhost:8080/albums",params)
    .then((res)=>{
     return dispatch({
         type: types.GET_MUSIC_RECORDS_SUCCESS,
