@@ -1,4 +1,4 @@
-import * as types from "../Redux/actionType"
+import * as types from "./actionType"
 import axios from "axios"
 
 
@@ -12,12 +12,13 @@ const getMusicRecord= (params) =>(dispatch)=>{
    .then((res)=>{
     return dispatch({
         type: types.GET_MUSIC_RECORDS_SUCCESS,
-        payload: res.data
+        payload: res.data,
     })
+  })
     .catch((err)=> {
         return dispatch({type: types.GET_MUSIC_RECORDS_FAILURE})
     })
-   })
+
 }
 
 export {getMusicRecord}

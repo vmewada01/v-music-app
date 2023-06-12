@@ -1,4 +1,4 @@
-import * as types from "../Redux/actionType";
+import * as types from "./actionType";
 
 const initialState = {
   musicRecords: [],

@@ -7,8 +7,8 @@ const FilterComponent = () => {
   const initialGenreParams = searchParams.getAll("genre");
  const intialSortParam = searchParams.get("sortBy")
 
+ const [category, setCategory] = useState(initialGenreParams || []);
   const [sortBy, setSortBy] = useState(intialSortParam || "");
-  const [category, setCategory] = useState(initialGenreParams || []);
   const handlGenreChange = (e) => {
     const option = e.target.value;
 
@@ -23,14 +23,14 @@ const FilterComponent = () => {
   //console.log(category)
 
   const handleSortBy = (e) => {
-    const option = e.target.value;
 
-    setSortBy(option);
+
+    setSortBy(e.target.value);
     //console.log(sortBy);
   };
 
   useEffect(() => {
-    if (category) {
+    if (category || sortBy) {
       setSearchParams({ genre: category,
     sortBy: sortBy
  });
@@ -64,8 +64,8 @@ const FilterComponent = () => {
       </Box>
       <Box>
         <input
-          defaultChecked={category.includes("Hard Rock")}
-          value="Hard Rock"
+          defaultChecked={category.includes(" Hard Rock")}
+          value=" Hard Rock"
           onChange={handlGenreChange}
           type="checkbox"
         />
